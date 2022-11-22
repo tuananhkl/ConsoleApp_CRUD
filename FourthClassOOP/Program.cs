@@ -57,9 +57,7 @@ namespace FourthClassOOP
         {
             //menu
             Console.OutputEncoding = Encoding.UTF8;
-            
-            //2. Nhập vào màn hình một số (2: Thứ 2, 3: Thứ 3, 4: Thứ 4, 5: Thứ 5, 6: Thứ 6, 7: Thứ 7, CN: Chủ nhật)
-            // - In ra đó là thứ mấy.
+
             while (true)
             {
                 Console.WriteLine("===MENU===");
@@ -79,7 +77,6 @@ namespace FourthClassOOP
                         petRepository.AddPet(pets);
                         break;
                     case 3:
-                        //UpdatePet();
                         UpdatePet();
                         break;
                     case 4:
@@ -105,27 +102,15 @@ namespace FourthClassOOP
             //Update
             var id = UserInput.GetInt("Nhap pet's id can update: ");
             
-            petRepository.UpdateById(pets, id);
-
-            // var idUpdated = UserInput.GetInt("Nhap pet's id can update: ");
-            // var animalNeedToUpdate = petRepository.GetById(idUpdated, pets);
-            //
-            // var newAnimal = new Animal();
-            //
-            // newAnimal.Height = UserInput.GetDouble("Nhap height moi: ");
-            // newAnimal.Weight = UserInput.GetDouble("Nhap weight moi: ");
-            // newAnimal.Color = UserInput.GetString("Nhap color moi: ");
-            //
-            // petRepository.Update(animalNeedToUpdate, newAnimal);
+            var height = UserInput.GetDouble("Nhap height moi: ");
+            var weight = UserInput.GetDouble("Nhap weight moi: ");
+            var color = UserInput.GetString("Nhap color moi: ");
+            
+            petRepository.UpdateById(pets, id, height, weight, color);
         }
 
         private static void Delete()
         {
-            //Delete
-            // var id = UserInput.GetInt("Nhap pet's id can xoa: ");
-            // var removedPet = petRepository.GetById(id, pets);
-            // petRepository.Delete(pets, removedPet);
-
             var id = UserInput.GetInt("Nhap pet's id can delete: ");
             petRepository.Delete(pets, id);
         }

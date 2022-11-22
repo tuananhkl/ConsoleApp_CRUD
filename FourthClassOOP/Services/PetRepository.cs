@@ -48,23 +48,27 @@ namespace FourthClassOOP.Services
             return output;
         }
 
-        public void UpdateById(List<Animal> pets, int id)
+        public void UpdateById(List<Animal> pets, int id, double height, double weight, string color)
         {
             var check = false;
 
-            var newAnimal = new Animal();
-
-            newAnimal.Height = UserInput.GetDouble("Nhap height moi: ");
-            newAnimal.Weight = UserInput.GetDouble("Nhap weight moi: ");
-            newAnimal.Color = UserInput.GetString("Nhap color moi: ");
+            // var newAnimal = new Animal();
+            //
+            // newAnimal.Height = UserInput.GetDouble("Nhap height moi: ");
+            // newAnimal.Weight = UserInput.GetDouble("Nhap weight moi: ");
+            // newAnimal.Color = UserInput.GetString("Nhap color moi: ");
             
             foreach (var pet in pets)
             {
                 if (pet.Id == id)
                 {
-                    pet.Color = newAnimal.Color;
-                    pet.Weight = newAnimal.Weight;
-                    pet.Height = newAnimal.Height;
+                    // pet.Color = newAnimal.Color;
+                    // pet.Weight = newAnimal.Weight;
+                    // pet.Height = newAnimal.Height;
+                    
+                    pet.Color = color;
+                    pet.Height = height;
+                    pet.Weight = weight;
                     check = true;
                 }
             }
