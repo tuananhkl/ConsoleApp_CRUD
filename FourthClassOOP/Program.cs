@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using FourthClassOOP.Services;
 using FourthClassOOP.Util;
@@ -74,7 +73,7 @@ namespace FourthClassOOP
                         ShowAllPets(pets);
                         break;
                     case 2:
-                        petRepository.AddPet(pets);
+                        AddPet();
                         break;
                     case 3:
                         UpdatePet();
@@ -97,13 +96,18 @@ namespace FourthClassOOP
             petRepository.GetAll(pets);
         }
 
+        private static void AddPet()
+        {
+            petRepository.Add(pets);
+        }
+
         private static void UpdatePet()
         {
             //Update
             var id = UserInput.GetInt("Nhap pet's id can update: ");
             
-            var height = UserInput.GetDouble("Nhap height moi: ");
-            var weight = UserInput.GetDouble("Nhap weight moi: ");
+            var height = UserInput.GetDouble("Nhap height moi (cm): ");
+            var weight = UserInput.GetDouble("Nhap weight moi (kg): ");
             var color = UserInput.GetString("Nhap color moi: ");
             
             petRepository.UpdateById(pets, id, height, weight, color);

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace FourthClassOOP.Util
 {
@@ -78,6 +79,15 @@ namespace FourthClassOOP.Util
                 
                 isInt = int.TryParse(numberText, out output);
             }
+            
+            return output;
+        }
+
+        public static string ConvertToTitleCase(string input)
+        {
+            var currentTextInfo = CultureInfo.CurrentCulture.TextInfo;
+
+            var output = currentTextInfo.ToTitleCase(input.ToLower());
             
             return output;
         }

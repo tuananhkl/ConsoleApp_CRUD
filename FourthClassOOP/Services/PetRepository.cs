@@ -11,10 +11,10 @@ namespace FourthClassOOP.Services
         {
             foreach (var pet in pets)
             {
-                Console.WriteLine($"Kind: {pet.Kind}");
                 Console.WriteLine($"Id: {pet.Id}");
-                Console.WriteLine($"Height: {pet.Height}");
-                Console.WriteLine($"Weight: {pet.Weight}");
+                Console.WriteLine($"Kind: {pet.Kind}");
+                Console.WriteLine($"Height: {pet.Height} cm");
+                Console.WriteLine($"Weight: {pet.Weight} kg");
                 Console.WriteLine($"Color: {pet.Color}");
                 pet.Park();
                 
@@ -80,7 +80,7 @@ namespace FourthClassOOP.Services
             }
         }
 
-        public void AddPet(List<Animal> pets)
+        public void Add(List<Animal> pets)
         {
             var pet = new Animal();
 
@@ -118,13 +118,13 @@ namespace FourthClassOOP.Services
             var kindCheck = false;
             while (kindCheck == false)
             {
-                var petKind = UserInput.GetString("Nhap pet's kind: ");
+                var petKind = UserInput.GetString("Nhap pet's kind (dog, cat, pig, chicken: ");
                 if (petKind.ToLower().Equals("dog") 
                     || petKind.ToLower().Equals("cat") 
                     || petKind.ToLower().Equals("pig") 
                     || petKind.ToLower().Equals("chicken"))
                 {
-                    pet.Kind = petKind;
+                    pet.Kind = UserInput.ConvertToTitleCase(petKind);
                     kindCheck = true;
                 }
                 else
@@ -146,14 +146,14 @@ namespace FourthClassOOP.Services
 
             #region pet Height
 
-            pet.Height = UserInput.GetDouble("Nhap pet's height: ");
+            pet.Height = UserInput.GetDouble("Nhap pet's height (cm): ");
 
             #endregion
 
             #region pet Weight
 
-            pet.Weight = UserInput.GetDouble("Nhap pet's weight: ");
-
+            pet.Weight = UserInput.GetDouble("Nhap pet's weight (kg): ");
+            
             #endregion
 
             #region pet Color
