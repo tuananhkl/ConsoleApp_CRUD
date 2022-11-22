@@ -36,7 +36,7 @@ namespace FourthClassOOP.Util
 
             bool isDouble = double.TryParse(numberText, out output);
 
-            while (!isDouble)
+            while (!isDouble || output <= 0)
             {
                 Console.WriteLine("That was invalid value (double). Please try again.");
                 Console.Write(message);
@@ -71,7 +71,7 @@ namespace FourthClassOOP.Util
 
             bool isInt = int.TryParse(numberText, out output);
 
-            while (!isInt)
+            while (!isInt || output <= 0)
             {
                 Console.WriteLine("That was invalid value (int). Please try again.");
                 Console.Write(message);

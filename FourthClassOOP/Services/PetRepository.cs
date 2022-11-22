@@ -158,7 +158,7 @@ namespace FourthClassOOP.Services
 
             #region pet Color
 
-            pet.Color = UserInput.GetString("Nhap pet's color: ");
+            pet.Color = UserInput.ConvertToTitleCase(UserInput.GetString("Nhap pet's color: "));
 
             #endregion
 
